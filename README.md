@@ -43,7 +43,7 @@ Respondinator response:
 
 ## Retrieving route (GET)
 
-    $> curl -s localhost:4568/addme | jq .
+    $> curl -s localhost:4568/hello | jq .
     {
       "world": {
         "hello": "dbag"
