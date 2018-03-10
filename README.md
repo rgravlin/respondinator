@@ -29,8 +29,6 @@ Respondinator response:
 
 ## Updating routes (PUT)
 
-* Use the _key_ that was provided in the POST or PUT
-
     $> curl -s -XPUT -d '{"path": "/hello", "response": { "world": { "hello": "dbag" } }, "key": "b08421d1-4cd5-4668-96d2-bf1467430db5"}' localhost:4568/addme
     $> curl -s localhost:4568/hello
     {"world":{"hello":"dbag"}}
