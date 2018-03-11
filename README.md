@@ -1,5 +1,7 @@
 # RESPONDINATOR
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/194dfc2242b14f8898234a11f9796e9c)](https://app.codacy.com/app/majordb/respondinator?utm_source=github.com&utm_medium=referral&utm_content=MajorDB/respondinator&utm_campaign=badger)
+
 ## What does it do?
 
 Respondinator consumes a JSON payload for the route */addme*.  The JSON payload must include a path (prefixed with a /) and a response key (string or JSON).
