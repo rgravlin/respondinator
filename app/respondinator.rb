@@ -143,8 +143,8 @@ put '/addme' do
   # Add route and key
   RouteTable.addpath(@path,@resp)
 
-  rt = { "path": @path, "response": @resp }
-  rk = { "key": RouteTable.addkey(@path) }
+  rt = { "path" => @path, "response" => @resp }
+  rk = { "key" => RouteTable.addkey(@path) }
 
   content_type :json
   status 200
@@ -156,8 +156,8 @@ post '/addme' do
   RouteTable.addpath(@path,@resp)
   RouteTable.addip(@ip_address)
 
-  rt = { "path": @path, "response": @resp }
-  rk = { "key": RouteTable.addkey(@path) }
+  rt = { "path" => @path, "response" => @resp }
+  rk = { "key" => RouteTable.addkey(@path) }
 
   content_type :json
   status 200
