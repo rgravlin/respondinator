@@ -25,49 +25,49 @@ MIN_KEYS_PUT = 3
 
 class RouteTable
 
-  @@table ||= {}
-  @@keys ||= {}
-  @@ips = Hash.new { |hash, key| hash[key] = 0 }
+  @table ||= {}
+  @keys ||= {}
+  @ips = Hash.new { |hash, key| hash[key] = 0 }
 
   def self.addip(ip)
-    @@ips[ip] += 1
+    @ips[ip] += 1
   end
 
   def self.countip(ip)
-    return true if @@ips[ip].to_i >= MAX_ROUTES
+    return true if @ips[ip].to_i >= MAX_ROUTES
   end
 
   def self.addpath(path, response)
-    @@table[path] = response
-    @@table[path]
+    @table[path] = response
+    @table[path]
   end
 
   def self.getpath(path)
-    @@table[path] rescue nil
+    @table[path] rescue nil
   end
 
   def self.getpaths
-    @@table.to_json
+    @table.to_json
   end
 
   def self.hasroute(path)
-    @@table.include?(path) rescue nil
+    @table.include?(path) rescue nil
   end
 
   def self.addkey(path)
-    @@keys[path] = SecureRandom.uuid
-    @@keys[path]
+    @keys[path] = SecureRandom.uuid
+    @keys[path]
   end
 
   def self.validatekey(path,key)
-    return true if @@keys[path] == key
+    return true if @keys[path] == key
   end
 
 end
 
 def valid_url?(uri)
-  return false if !/^\//.match(uri)
-  uri = URI.parse(uri)
+  return false unless /^\//.match(uri)
+  URI.parse(uri)
 rescue URI::InvalidURIError
   false
 end
@@ -106,7 +106,7 @@ before do
     #   - Rescue specific error types
     begin
       payload = JSON.parse(request.body.read)
-    rescue JSON::ParserError => e
+    rescue JSON::ParserError
       halt 406, errcheck(20)
     end
   

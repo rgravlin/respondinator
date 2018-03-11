@@ -53,12 +53,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  json!
+  json
   rack-test
   rspec
-  sinatra!
-  thin!
-  utf8-cleaner!
+  sinatra
+  thin
+  utf8-cleaner
 
 BUNDLED WITH
    1.15.4
