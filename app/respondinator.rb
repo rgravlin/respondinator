@@ -16,6 +16,7 @@ set :bind, '0.0.0.0'
 set :port, 4568
 set :protection, true
 disable :show_exceptions, :raise_errors, :dump_errors
+enable :cross_origin
 
 MAX_ROUTES = ENV['RACK_ENV'] == 'test' ? 2 : 1000
 MAX_SIZE = 4096
@@ -95,6 +96,8 @@ end
 before do
   # Set method
   method = request.request_method.to_s.upcase
+
+  response.headers['Access-Control-Allow-Origin'] = '*'
 
   if ["POST","PUT"].include?(method)
 
